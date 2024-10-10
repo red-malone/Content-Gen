@@ -1,21 +1,23 @@
 from dotenv import load_dotenv
 import os
-from langchain.llms import OpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from langchain.chains import SimpleSequentialChain
+from langchain import PromptTemplate, LLMChain
+from langchain_huggingface import HuggingFaceEndpoint
+
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
-llm = OpenAI(temperature=0.7, openai_api_key=api_key)
-def lang(content):
-
-    template=PromptTemplate(
+id="meta-llama/Llama-3.2-1B"
+llm=HuggingFaceEndpoint(repo_id=id,temperature=0.7,token=api_key)
+template=PromptTemplate(
         input_variables=["content"],
         template="Write {content} needed for the website",
     )
 
-    chain = LLMChain(llm=llm, prompt=template)
+# llm = OpenAI(temperature=0.7, openai_api_key=api_key)
+# def lang(content):
 
-    return chain.run(content)
+    
+#     chain = LLMChain(llm=llm, prompt=template)
+
+#     return chain.run(content)
     
