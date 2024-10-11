@@ -21,6 +21,3 @@ def lang(topic,blog_title):
     chain = template | llm | StrOutputParser()
     return chain.invoke({"topic": topic, "blog_title": blog_title})
 
-
-result = lang("The Importance of Coffee in Productivity", "How Coffee Fuels Productivity in the Modern Workplace")
-print(result)
