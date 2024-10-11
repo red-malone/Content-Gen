@@ -1,6 +1,7 @@
 import streamlit as st
 import lang
 
-st.title("Website Generator")
-st.header("Enter the content of the website")
-content = st.text_area("Content", height=200)
+st.title("Blog Generator")
+st.header("Enter the topic and blog title")
+content = st.text_input("Topic", )
+blog_title = st.text_input("Blog Title",)
